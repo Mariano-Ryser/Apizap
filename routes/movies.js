@@ -2,12 +2,12 @@ import { Router } from 'express'
 
 import { MovieController } from '../controllers/movies.js'
 
-export const comentarsRouter = Router()
+export const moviesRouter = Router()
 
-comentarsRouter.get('/', MovieController.getAll)
-comentarsRouter.post('/', MovieController.create)
+moviesRouter.get('/', MovieController.getAll)
+moviesRouter.post('/', MovieController.create)
 
-comentarsRouter.get('/:id', MovieController.getById)
-comentarsRouter.delete('/:id', MovieController.delete)
-comentarsRouter.patch('/:id', MovieController.update)
+moviesRouter.get('/:id', MovieController.getById)
+moviesRouter.delete('/:id', MovieController.delete)
+moviesRouter.patch('/:id', MovieController.update)
 

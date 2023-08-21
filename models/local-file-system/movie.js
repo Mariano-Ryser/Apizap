@@ -3,7 +3,7 @@ import { readJSON } from '../../utils.js'
 
 const movies = readJSON('./movies.json')
 
-export class ComentarModel {
+export class MovieModel {
 
         static getAll ({ genre }) {
 
@@ -25,16 +25,16 @@ export class ComentarModel {
 
         static async create ({input}){
             //En base de datos! 
-            const newComentar={
+            const newMovie={
                 id: randomUUID(), //crea un uuid v4
             //Data ya validada
                 ...input
             }
             //Esto no seria REST, porque estamos guardando
             //el estado de la aplicacion en memoria
-            movies.push(newComentar)
+            movies.push(newMovie)
 
-            return newComentar
+            return newMovie
         }
 
         static async delete ({ id }){
