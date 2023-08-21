@@ -1,26 +1,26 @@
 import { randomUUID } from 'node:crypto'
 import { readJSON } from '../../utils.js'
 
-const comentars = readJSON('./comentars.json')
+const movies = readJSON('./movies.json')
 
 export class ComentarModel {
 
         static getAll ({ genre }) {
 
                 if(genre) {
-                    return comentars.filter(
-                    comentar => comentar.genre.some(g => g.toLowerCase() === genre.toLowerCase())
+                    return movies.filter(
+                    movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
                     )}
 
-                console.log(comentars)
+                console.log(movies)
 
-        return comentars
+        return movies
         }
 
         static async getById ({id}) {
-            const comentar = comentars.find(comentar => comentar.id === id)
-            if( comentar )
-            return comentar
+            const movie = movies.find(movie => movie.id === id)
+            if( movie )
+            return movie
         }
 
         static async create ({input}){
@@ -32,28 +32,28 @@ export class ComentarModel {
             }
             //Esto no seria REST, porque estamos guardando
             //el estado de la aplicacion en memoria
-            comentars.push(newComentar)
+            movies.push(newComentar)
 
             return newComentar
         }
 
         static async delete ({ id }){
-            const comentarIndex = comentars.findIndex(comentar => comentar.id === id)
-            if(comentarIndex === -1) return false
+            const movieIndex = movies.findIndex(movie => movie.id === id)
+            if(movieIndex === -1) return false
 
-            comentars.splice(comentarIndex, 1)
+            movies.splice(movieIndex, 1)
             return true
         }
 
         static async update({id, input}){
-            const comentarIndex = comentars.findIndex(comentar => comentar.id === id)
-            if(comentarIndex === -1) return false
+            const movieIndex = movies.findIndex(movie => movie.id === id)
+            if(movieIndex === -1) return false
 
-            comentars[comentarIndex] = {
-                ...comentars[comentarIndex],
+            movies[movieIndex] = {
+                ...movies[movieIndex],
                 ...input
             }
-            return comentars[comentarIndex]
+            return movies[movieIndex]
         }
 
 }

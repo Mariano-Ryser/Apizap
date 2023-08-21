@@ -1,13 +1,13 @@
 import { Router } from 'express'
 
-import { ComentarController } from '../controllers/comentars.js'
+import { MovieController } from '../controllers/movies.js'
 
 export const comentarsRouter = Router()
 
-comentarsRouter.get('/', ComentarController.getAll)
-comentarsRouter.post('/', ComentarController.create)
+comentarsRouter.get('/', MovieController.getAll)
+comentarsRouter.post('/', MovieController.create)
 
-comentarsRouter.get('/:id', ComentarController.getById)
-comentarsRouter.delete('/:id', ComentarController.delete)
-comentarsRouter.patch('/:id', ComentarController.update)
+comentarsRouter.get('/:id', MovieController.getById)
+comentarsRouter.delete('/:id', MovieController.delete)
+comentarsRouter.patch('/:id', MovieController.update)
 

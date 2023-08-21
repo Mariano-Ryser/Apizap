@@ -14,7 +14,7 @@ async function connect () {
   try {
     await client.connect()
     const database = client.db('database')
-    return database.collection('comentars')
+    return database.collection('Movie')
   } catch (error) {
     console.error('Error connecting to the database')
     console.error(error)

@@ -1,47 +1,47 @@
-import { ComentarModel } from '../models/local-file-system/comentar.js'
-import { validateComentar, validatePartialComentar } from '../schemas/comentars.js' //importo funcion de validacion
+import { MovieModel } from '../models/local-file-system/movie.js'
+import { validateMovie, validatePartialMovie } from '../schemas/movies.js' //importo funcion de validacion
 
-export class ComentarController {
+export class MovieController {
     static async getAll (req, res) {
       const { genre } = req.query
-      const comentars = await ComentarModel.getAll({ genre })
-      res.json(comentars)
+      const movies = await MovieModel.getAll({ genre })
+      res.json(movies)
     }
   
     static async getById (req, res) {
       const { id } = req.params
-      const comentar = await ComentarModel.getById({ id })
-      if (comentar) return res.json(comentar)
-      res.status(404).json({ message: 'Comentar not found' })
+      const movie = await MovieModel.getById({ id })
+      if (movie) return res.json(movie)
+      res.status(404).json({ message: 'Movie not found' })
     }
   
     static async create (req, res) {
-      const result = validateComentar(req.body)
+      const result = validateMovie(req.body)
   
       if (!result.success) {
       // 422 Unprocessable Entity
         return res.status(400).json({ error: JSON.parse(result.error.message) })
       }
   
-      const newComentar = await ComentarModel.create({ input: result.data })
+      const newMovie = await MovieModel.create({ input: result.data })
   
-      res.status(201).json(newComentar)
+      res.status(201).json(newMovie)
     }
   
     static async delete (req, res) {
       const { id } = req.params
   
-      const result = await ComentarModel.delete({ id })
+      const result = await MovieModel.delete({ id })
   
       if (result === false) {
-        return res.status(404).json({ message: 'Comentar not found' })
+        return res.status(404).json({ message: 'Movie not found' })
       }
   
-      return res.json({ message: 'Comentar deleted' })
+      return res.json({ message: 'Movie deleted' })
     }
   
     static async update (req, res) {
-      const result = validatePartialComentar(req.body)
+      const result = validatePartialMovie(req.body)
   
       if (!result.success) {
         return res.status(400).json({ error: JSON.parse(result.error.message) })
@@ -49,8 +49,8 @@ export class ComentarController {
   
       const { id } = req.params
   
-      const updatedComentar = await ComentarModel.update({ id, input: result.data })
+      const updatedMovie = await MovieModel.update({ id, input: result.data })
   
-      return res.json(updatedComentar)
+      return res.json(updatedMovie)
     }
   }
