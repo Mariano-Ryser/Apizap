@@ -1,4 +1,5 @@
 import express, { json } from "express"
+
 import { comentarsRouter } from './routes/comentars.js'
 import { moviesRouter } from './routes/movies.js'
 import { corsMiddleware } from './middlewares/movies.js'
@@ -18,5 +19,4 @@ const PORT = process.env.PORT ?? 1234
 app.listen(PORT, () => {
     console.log('server listening on port 1234')
 })
-
 
