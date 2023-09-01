@@ -1,19 +1,8 @@
-# createcomentar
-POST http://localhost:1234/comentars
-Content-Type: application/json
-
-{
-  "user": "Juancito",
-  "text": "comentario de juancito el loco"
-}
-
-
-
 ### Recuperar todas las películas
-GET https://mr-app.azurewebsites.net/api/v1/personajes
+GET http://localhost:1234/movies
 
 ### Recuperar una película por id
-GET http://localhost:1234/movies/64d4d8825d614a4ec5984ae3
+GET http://localhost:1234/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
 
 ### Recuperar todas las películas por un género
 GET http://localhost:1234/movies?genre=ACTION
@@ -23,11 +12,10 @@ POST http://localhost:1234/movies
 Content-Type: application/json
 
 {
-  "sql": "SELECT * FROM users",
   "title": "The Godfather",
   "year": 1975,
   "director": "Francis Ford Coppola",
-  "duration": 175,
+  "duration": 177,
   "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
   "genre": [
     "Crime",
@@ -35,13 +23,14 @@ Content-Type: application/json
   ]
 }
 
-### Borrar una película
-DELETE http://localhost:1234/movies/64d4d8825d614a4ec5984ae3
-
 ### Actualizar una película
-PATCH http://localhost:1234/movies/64d4da882f83563ab4f40632
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 Content-Type: application/json
 
 {
   "year": 2022
 }
+
+### eliminar
+DELETE http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+

@@ -1,10 +1,10 @@
-fetch('http://localhost:1234/movies')
+fetch('http://localhost:1234/comentars')
 .then(res => res.json())
-.then(movies =>{
-    const html = movies.map(movie => {
+.then(comentars =>{
+    const html = comentars.map(comentar => {
         return `
-        <article data-id="${movie.id}">
-            <h2>${movie.titulo}</h2>
+        <article data-id="${comentar.id}">
+            <h2>${comentar.titulo}</h2>
 
             <button>Eliminar</button>
         </article>
@@ -18,7 +18,7 @@ fetch('http://localhost:1234/movies')
             const article = e.target.closest('article')
             const id = article.dataset.id
         
-        fetch(`http://localhost:1234/movies/${id}`,{
+        fetch(`http://localhost:1234/comentars/${id}`,{
                 method:'DELETE'
             })
             .then(res =>{
