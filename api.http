@@ -1,5 +1,11 @@
-### Recuperar todas las películas
-GET http://localhost:1234/movies
+# createcomentar
+POST http://localhost:1234/comentars
+Content-Type: application/json
+
+{
+  "user": "Juancito",
+  "text": "comentario de juancito el loco"
+}
 
 
 

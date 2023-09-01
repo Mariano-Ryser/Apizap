@@ -3,5 +3,20 @@
   "id": "dcdd0fad-a94c-4810-8acc-5f108d3b18c3",
   "user":"player1",
   "text":"Hello World!"
+  },
+  {
+  "id": "44dd5e8b-7106-4d70-8ce3-a1e4015575cf",
+  "user": "Josesito",
+  "text": "comentario de josesito"
+  },
+  {
+    "id": "032a7476-47da-4c80-8af0-916521acf591",
+    "user": "Marianito",
+    "text": "comentario de josesito"
+  },
+  {
+    "id": "4714d1cd-f32a-46a9-b759-519723961128",
+    "user": "Pedrito",
+    "text": "comentario de josesito"
   }
 ]
